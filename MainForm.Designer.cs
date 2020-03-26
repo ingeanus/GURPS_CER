@@ -1,4 +1,7 @@
-﻿namespace GURPS_CER
+﻿// Author : ingeanus https://github.com/ingeanus/GURPS_CER
+// Date : 26-Mar-20
+// Can you use this code yourself? I dunno why you would but sure, just credit me I guess.
+namespace GURPS_CER
 {
     partial class MainForm
     {
@@ -1945,7 +1948,7 @@
             this.loadButton2.TabIndex = 7;
             this.loadButton2.Text = "Load As";
             this.loadButton2.UseVisualStyleBackColor = true;
-            this.loadButton2.Click += new System.EventHandler(this.loadButton2_Click);
+            this.loadButton2.Click += new System.EventHandler(this.LoadButton2_Click);
             // 
             // saveButton
             // 

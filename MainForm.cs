@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 
+// Author : ingeanus https://github.com/ingeanus/GURPS_CER
+// Date : 26-Mar-20
+// Can you use this code yourself? I dunno why you would but sure, just credit me I guess.
+
 namespace GURPS_CER
 {
     public partial class MainForm : Form
@@ -30,10 +34,12 @@ namespace GURPS_CER
             Populate_Tooltips();
         }
 
+        // This simply sets the popup tooltip boxes for all the minorly confusing areas.
         private void Populate_Tooltips()
         {
             this.mainFormTooltip.SetToolTip(this.drLabel2, "This is the amount of points spent on DR that only applies to special attacks, such as Fire Resistance.");
-            this.mainFormTooltip.SetToolTip(this.multiAttackCheckbox, "This is only if you are capable of MULTIPLE Rapid Strike attacks that have a skill above 11.");
+            this.mainFormTooltip.SetToolTip(this.rapidStrikesCheckbox, "This is only if you are capable of MULTIPLE Rapid Strike attacks that have a skill above 11.");
+            this.mainFormTooltip.SetToolTip(this.multiAttackCheckbox, "This is if you have things like Extra Attack that allow for additional free attacks.");
             this.mainFormTooltip.SetToolTip(this.rapidFireLabel, "This is the bonus for firing a large amount of attacks at once (B373), not the amount of shots you can fire.");
             this.mainFormTooltip.SetToolTip(this.conditionLabel, "This is the % that the condition would be worth as an enhancement to an Affliction, e.g. 300% for Heart Attack, so input 300.");
             this.mainFormTooltip.SetToolTip(this.afflictionAttackLabel, "This is the GURPS CER value for the damage of the attack tied to this Affliction. It's calculated the same as in the Damage tab, but they can be different attacks.");
@@ -46,6 +52,7 @@ namespace GURPS_CER
             this.mainFormTooltip.SetToolTip(this.saveButton, "Click to Save this character as a .gcer file.");
         }
         
+        // Checkboxes like these show hidden areas when checked.
         private void RangedCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (rangedCheckbox.Checked)
@@ -195,6 +202,7 @@ namespace GURPS_CER
             Calculate_Affliction();
         }
 
+        // These Calculate_foo functions perform the necessary calculations that It's A Threat requires and set the foo_total labels to that value.
         private void Calculate_ActiveDefense()
         {
             decimal parryMultiple = 0;
@@ -473,6 +481,7 @@ namespace GURPS_CER
             Calculate_Summary();
         }
 
+        // This special Calculate adds all the parts together into the offense, defense, and total labels.
         private void Calculate_Summary()
         {
             decimal total;
@@ -788,20 +797,21 @@ namespace GURPS_CER
             Calculate_FatiguePoints();
         }
 
+        // This functions saves the files as a .gcer (One of my own types)
         private void SaveButton_Click(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = "GURPS CER|*.gcer";
             saveFileDialog1.Title = "Save a GCER File";
-            saveFileDialog1.FileName = "";
+            saveFileDialog1.FileName = "";                                   // Initializes some QOL values
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)            // Pops up the save dialog and continues if it's OK
             {
-                System.IO.StreamWriter f_out = new System.IO.StreamWriter(saveFileDialog1.FileName);
-                foreach (TabPage tab in attackTabControl.Controls)
+                System.IO.StreamWriter f_out = new System.IO.StreamWriter(saveFileDialog1.FileName); // New StreamWriter on the selected file name.
+                foreach (TabPage tab in attackTabControl.Controls)          // It starts by iterating through all the tabs in the left tabControl
                 {
-                    foreach (var item in tab.Controls)
+                    foreach (var item in tab.Controls)                      // Then, it iterates through all the items on the tab
                     {
-                        if (item.GetType() == typeof(NumericUpDown))
+                        if (item.GetType() == typeof(NumericUpDown))        // And determines if it is a value it needs to saves and how to interpret that value.
                         {
                             NumericUpDown temp = (NumericUpDown)item;
                             f_out.WriteLine(temp.Value.ToString());
@@ -819,7 +829,7 @@ namespace GURPS_CER
                     }
                 }
 
-                foreach (TabPage tab in defenseTabControl.Controls)
+                foreach (TabPage tab in defenseTabControl.Controls)     // It also does it for the middle tabControl.
                 {
                     foreach (var item in tab.Controls)
                     {
@@ -844,16 +854,17 @@ namespace GURPS_CER
             }
         }
 
+        // This function is used to load a .gcer file into the program.
         public void Load_File(string file)
         {
-            System.IO.StreamReader f_in = new System.IO.StreamReader(file);
+            System.IO.StreamReader f_in = new System.IO.StreamReader(file);         // Create a StreamReader on the passed filename.
             string line;
 
-            foreach (TabPage tab in attackTabControl.Controls)
+            foreach (TabPage tab in attackTabControl.Controls)                      // Iterate through the tabControl
             {
-                foreach (var item in tab.Controls)
+                foreach (var item in tab.Controls)                                  // And then everything on the tab
                 {
-                    if (item.GetType() == typeof(NumericUpDown))
+                    if (item.GetType() == typeof(NumericUpDown))                    // And determine the type of the object on the tab and what to do with it.
                     {
                         line = f_in.ReadLine();
                         decimal temp = Decimal.Parse(line);
@@ -899,7 +910,8 @@ namespace GURPS_CER
             f_in.Close();
         }
 
-        private void loadButton2_Click(object sender, EventArgs e)
+        // Creates an openFileDialog when the load button is clicked so you can select a file.
+        private void LoadButton2_Click(object sender, EventArgs e)
         {
             openFileDialog1.InitialDirectory = @".\Characters";
             openFileDialog1.FileName = "";
