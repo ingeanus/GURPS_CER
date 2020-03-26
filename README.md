@@ -5,5 +5,7 @@ To Download, go to :
 https://github.com/ingeanus/GURPS_CER/releases
 
 Then, click on the latest .7z file.
+
 Extract the files.
+
 Then, run the .exe
