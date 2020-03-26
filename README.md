@@ -8,4 +8,4 @@ Then, click on the latest .7z file.
 
 Extract the files.
 
-Then, run the .exe
+Then you're good, just run the .exe
