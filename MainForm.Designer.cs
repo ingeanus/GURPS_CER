@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.attackSkillLabel = new System.Windows.Forms.Label();
             this.attackSkilluNumeric = new System.Windows.Forms.NumericUpDown();
             this.rangedCheckbox = new System.Windows.Forms.CheckBox();
@@ -70,7 +71,7 @@
             this.damageTabPage = new System.Windows.Forms.TabPage();
             this.damageTotal = new System.Windows.Forms.Label();
             this.damageTotalLabel = new System.Windows.Forms.Label();
-            this.requiredFPCheckbox = new System.Windows.Forms.CheckBox();
+            this.attackCostsFP = new System.Windows.Forms.CheckBox();
             this.cyclesLabel = new System.Windows.Forms.Label();
             this.cyclesNumeric = new System.Windows.Forms.NumericUpDown();
             this.armourDivisorCombobox = new System.Windows.Forms.ComboBox();
@@ -182,6 +183,7 @@
             this.willInstructionsLabel = new System.Windows.Forms.Label();
             this.summaryTabControl = new System.Windows.Forms.TabControl();
             this.mainSummaryTabPage = new System.Windows.Forms.TabPage();
+            this.loadButton2 = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.defence = new System.Windows.Forms.Label();
             this.defenceTotal = new System.Windows.Forms.Label();
@@ -190,6 +192,8 @@
             this.summary = new System.Windows.Forms.Label();
             this.summaryLabel = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.mainFormTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.attackSkilluNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accuracyNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rapidStrikesNumeric)).BeginInit();
@@ -418,9 +422,19 @@
             // rapidStrikesSkillNumeric
             // 
             this.rapidStrikesSkillNumeric.Location = new System.Drawing.Point(127, 189);
+            this.rapidStrikesSkillNumeric.Minimum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
             this.rapidStrikesSkillNumeric.Name = "rapidStrikesSkillNumeric";
             this.rapidStrikesSkillNumeric.Size = new System.Drawing.Size(42, 20);
             this.rapidStrikesSkillNumeric.TabIndex = 15;
+            this.rapidStrikesSkillNumeric.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
             this.rapidStrikesSkillNumeric.Visible = false;
             this.rapidStrikesSkillNumeric.ValueChanged += new System.EventHandler(this.rapidStrikesSkillNumeric_ValueChanged);
             // 
@@ -543,9 +557,9 @@
             this.afflictionCostsFP.AutoSize = true;
             this.afflictionCostsFP.Location = new System.Drawing.Point(11, 199);
             this.afflictionCostsFP.Name = "afflictionCostsFP";
-            this.afflictionCostsFP.Size = new System.Drawing.Size(74, 17);
+            this.afflictionCostsFP.Size = new System.Drawing.Size(241, 17);
             this.afflictionCostsFP.TabIndex = 41;
-            this.afflictionCostsFP.Text = "Costs FP?";
+            this.afflictionCostsFP.Text = "Costs FP or has some resource consumption?";
             this.afflictionCostsFP.UseVisualStyleBackColor = true;
             this.afflictionCostsFP.CheckedChanged += new System.EventHandler(this.afflictionCostsFP_CheckedChanged);
             // 
@@ -623,9 +637,9 @@
             this.afflictionAttackLabel.AutoSize = true;
             this.afflictionAttackLabel.Location = new System.Drawing.Point(32, 86);
             this.afflictionAttackLabel.Name = "afflictionAttackLabel";
-            this.afflictionAttackLabel.Size = new System.Drawing.Size(74, 13);
+            this.afflictionAttackLabel.Size = new System.Drawing.Size(106, 13);
             this.afflictionAttackLabel.TabIndex = 34;
-            this.afflictionAttackLabel.Text = "Attack Value: ";
+            this.afflictionAttackLabel.Text = "Attack\'s CER Value: ";
             this.afflictionAttackLabel.Visible = false;
             // 
             // afflictionAttackCheckBox
@@ -641,7 +655,7 @@
             // 
             // conditionNumeric
             // 
-            this.conditionNumeric.Location = new System.Drawing.Point(130, 40);
+            this.conditionNumeric.Location = new System.Drawing.Point(135, 40);
             this.conditionNumeric.Name = "conditionNumeric";
             this.conditionNumeric.Size = new System.Drawing.Size(42, 20);
             this.conditionNumeric.TabIndex = 30;
@@ -653,9 +667,9 @@
             this.conditionLabel.AutoSize = true;
             this.conditionLabel.Location = new System.Drawing.Point(32, 42);
             this.conditionLabel.Name = "conditionLabel";
-            this.conditionLabel.Size = new System.Drawing.Size(98, 13);
+            this.conditionLabel.Size = new System.Drawing.Size(94, 13);
             this.conditionLabel.TabIndex = 31;
-            this.conditionLabel.Text = "Condition % Value: ";
+            this.conditionLabel.Text = "Affliction % Value: ";
             this.conditionLabel.Visible = false;
             // 
             // conditionCheckbox
@@ -682,7 +696,7 @@
             // 
             this.damageTabPage.Controls.Add(this.damageTotal);
             this.damageTabPage.Controls.Add(this.damageTotalLabel);
-            this.damageTabPage.Controls.Add(this.requiredFPCheckbox);
+            this.damageTabPage.Controls.Add(this.attackCostsFP);
             this.damageTabPage.Controls.Add(this.cyclesLabel);
             this.damageTabPage.Controls.Add(this.cyclesNumeric);
             this.damageTabPage.Controls.Add(this.armourDivisorCombobox);
@@ -720,16 +734,16 @@
             this.damageTotalLabel.TabIndex = 38;
             this.damageTotalLabel.Text = "Damage Total: ";
             // 
-            // requiredFPCheckbox
+            // attackCostsFP
             // 
-            this.requiredFPCheckbox.AutoSize = true;
-            this.requiredFPCheckbox.Location = new System.Drawing.Point(11, 164);
-            this.requiredFPCheckbox.Name = "requiredFPCheckbox";
-            this.requiredFPCheckbox.Size = new System.Drawing.Size(90, 17);
-            this.requiredFPCheckbox.TabIndex = 37;
-            this.requiredFPCheckbox.Text = "Requires FP?";
-            this.requiredFPCheckbox.UseVisualStyleBackColor = true;
-            this.requiredFPCheckbox.CheckedChanged += new System.EventHandler(this.requiredFPCheckbox_CheckedChanged);
+            this.attackCostsFP.AutoSize = true;
+            this.attackCostsFP.Location = new System.Drawing.Point(11, 164);
+            this.attackCostsFP.Name = "attackCostsFP";
+            this.attackCostsFP.Size = new System.Drawing.Size(241, 17);
+            this.attackCostsFP.TabIndex = 37;
+            this.attackCostsFP.Text = "Costs FP or has some resource consumption?";
+            this.attackCostsFP.UseVisualStyleBackColor = true;
+            this.attackCostsFP.CheckedChanged += new System.EventHandler(this.requiredFPCheckbox_CheckedChanged);
             // 
             // cyclesLabel
             // 
@@ -746,6 +760,11 @@
             this.cyclesNumeric.Name = "cyclesNumeric";
             this.cyclesNumeric.Size = new System.Drawing.Size(67, 20);
             this.cyclesNumeric.TabIndex = 36;
+            this.cyclesNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.cyclesNumeric.ValueChanged += new System.EventHandler(this.cyclesNumeric_ValueChanged);
             // 
             // armourDivisorCombobox
@@ -1273,13 +1292,13 @@
             this.magicResistanceLabel.AutoSize = true;
             this.magicResistanceLabel.Location = new System.Drawing.Point(7, 196);
             this.magicResistanceLabel.Name = "magicResistanceLabel";
-            this.magicResistanceLabel.Size = new System.Drawing.Size(98, 13);
+            this.magicResistanceLabel.Size = new System.Drawing.Size(127, 13);
             this.magicResistanceLabel.TabIndex = 41;
-            this.magicResistanceLabel.Text = "Magic Resistance: ";
+            this.magicResistanceLabel.Text = "Magic Resistance Level: ";
             // 
             // magicResistanceNumeric
             // 
-            this.magicResistanceNumeric.Location = new System.Drawing.Point(106, 194);
+            this.magicResistanceNumeric.Location = new System.Drawing.Point(140, 194);
             this.magicResistanceNumeric.Name = "magicResistanceNumeric";
             this.magicResistanceNumeric.Size = new System.Drawing.Size(65, 20);
             this.magicResistanceNumeric.TabIndex = 42;
@@ -1290,13 +1309,13 @@
             this.defenseDisadvantagesLabel.AutoSize = true;
             this.defenseDisadvantagesLabel.Location = new System.Drawing.Point(7, 174);
             this.defenseDisadvantagesLabel.Name = "defenseDisadvantagesLabel";
-            this.defenseDisadvantagesLabel.Size = new System.Drawing.Size(178, 13);
+            this.defenseDisadvantagesLabel.Size = new System.Drawing.Size(204, 13);
             this.defenseDisadvantagesLabel.TabIndex = 39;
-            this.defenseDisadvantagesLabel.Text = "Points in Defensive Disadvantages: ";
+            this.defenseDisadvantagesLabel.Text = "Points in Combat Limiting Disadvantages: ";
             // 
             // defenseDisadvantagesNumeric
             // 
-            this.defenseDisadvantagesNumeric.Location = new System.Drawing.Point(186, 171);
+            this.defenseDisadvantagesNumeric.Location = new System.Drawing.Point(217, 172);
             this.defenseDisadvantagesNumeric.Name = "defenseDisadvantagesNumeric";
             this.defenseDisadvantagesNumeric.Size = new System.Drawing.Size(65, 20);
             this.defenseDisadvantagesNumeric.TabIndex = 40;
@@ -1307,13 +1326,13 @@
             this.defenseAdvantagesLabel.AutoSize = true;
             this.defenseAdvantagesLabel.Location = new System.Drawing.Point(7, 149);
             this.defenseAdvantagesLabel.Name = "defenseAdvantagesLabel";
-            this.defenseAdvantagesLabel.Size = new System.Drawing.Size(164, 13);
+            this.defenseAdvantagesLabel.Size = new System.Drawing.Size(185, 13);
             this.defenseAdvantagesLabel.TabIndex = 37;
-            this.defenseAdvantagesLabel.Text = "Points in Defensive Advantages: ";
+            this.defenseAdvantagesLabel.Text = "Points in Combat Useful Advantages: ";
             // 
             // defenseAdvantagesNumeric
             // 
-            this.defenseAdvantagesNumeric.Location = new System.Drawing.Point(186, 147);
+            this.defenseAdvantagesNumeric.Location = new System.Drawing.Point(217, 146);
             this.defenseAdvantagesNumeric.Name = "defenseAdvantagesNumeric";
             this.defenseAdvantagesNumeric.Size = new System.Drawing.Size(65, 20);
             this.defenseAdvantagesNumeric.TabIndex = 38;
@@ -1322,7 +1341,7 @@
             // drLabel3
             // 
             this.drLabel3.AutoSize = true;
-            this.drLabel3.Location = new System.Drawing.Point(227, 20);
+            this.drLabel3.Location = new System.Drawing.Point(287, 19);
             this.drLabel3.Name = "drLabel3";
             this.drLabel3.Size = new System.Drawing.Size(83, 13);
             this.drLabel3.TabIndex = 36;
@@ -1330,7 +1349,7 @@
             // 
             // hardenedTorsoNumeric
             // 
-            this.hardenedTorsoNumeric.Location = new System.Drawing.Point(232, 114);
+            this.hardenedTorsoNumeric.Location = new System.Drawing.Point(292, 113);
             this.hardenedTorsoNumeric.Name = "hardenedTorsoNumeric";
             this.hardenedTorsoNumeric.Size = new System.Drawing.Size(65, 20);
             this.hardenedTorsoNumeric.TabIndex = 35;
@@ -1338,7 +1357,7 @@
             // 
             // hardenedLegsNumeric
             // 
-            this.hardenedLegsNumeric.Location = new System.Drawing.Point(232, 88);
+            this.hardenedLegsNumeric.Location = new System.Drawing.Point(292, 87);
             this.hardenedLegsNumeric.Name = "hardenedLegsNumeric";
             this.hardenedLegsNumeric.Size = new System.Drawing.Size(65, 20);
             this.hardenedLegsNumeric.TabIndex = 34;
@@ -1346,7 +1365,7 @@
             // 
             // hardenedArmsNumeric
             // 
-            this.hardenedArmsNumeric.Location = new System.Drawing.Point(232, 63);
+            this.hardenedArmsNumeric.Location = new System.Drawing.Point(292, 62);
             this.hardenedArmsNumeric.Name = "hardenedArmsNumeric";
             this.hardenedArmsNumeric.Size = new System.Drawing.Size(65, 20);
             this.hardenedArmsNumeric.TabIndex = 33;
@@ -1354,7 +1373,7 @@
             // 
             // hardenedHeadNumeric
             // 
-            this.hardenedHeadNumeric.Location = new System.Drawing.Point(232, 37);
+            this.hardenedHeadNumeric.Location = new System.Drawing.Point(292, 36);
             this.hardenedHeadNumeric.Name = "hardenedHeadNumeric";
             this.hardenedHeadNumeric.Size = new System.Drawing.Size(65, 20);
             this.hardenedHeadNumeric.TabIndex = 32;
@@ -1363,15 +1382,15 @@
             // drLabel2
             // 
             this.drLabel2.AutoSize = true;
-            this.drLabel2.Location = new System.Drawing.Point(145, 20);
+            this.drLabel2.Location = new System.Drawing.Point(168, 20);
             this.drLabel2.Name = "drLabel2";
-            this.drLabel2.Size = new System.Drawing.Size(83, 13);
+            this.drLabel2.Size = new System.Drawing.Size(104, 13);
             this.drLabel2.TabIndex = 31;
-            this.drLabel2.Text = "Spec DR Points";
+            this.drLabel2.Text = "Points in Special DR";
             // 
             // pointsSpecTorsoNumeric
             // 
-            this.pointsSpecTorsoNumeric.Location = new System.Drawing.Point(154, 114);
+            this.pointsSpecTorsoNumeric.Location = new System.Drawing.Point(186, 113);
             this.pointsSpecTorsoNumeric.Name = "pointsSpecTorsoNumeric";
             this.pointsSpecTorsoNumeric.Size = new System.Drawing.Size(65, 20);
             this.pointsSpecTorsoNumeric.TabIndex = 30;
@@ -1379,7 +1398,7 @@
             // 
             // pointsSpecLegsNumeric
             // 
-            this.pointsSpecLegsNumeric.Location = new System.Drawing.Point(154, 88);
+            this.pointsSpecLegsNumeric.Location = new System.Drawing.Point(186, 87);
             this.pointsSpecLegsNumeric.Name = "pointsSpecLegsNumeric";
             this.pointsSpecLegsNumeric.Size = new System.Drawing.Size(65, 20);
             this.pointsSpecLegsNumeric.TabIndex = 29;
@@ -1387,7 +1406,7 @@
             // 
             // pointsSpecArmsNumeric
             // 
-            this.pointsSpecArmsNumeric.Location = new System.Drawing.Point(154, 63);
+            this.pointsSpecArmsNumeric.Location = new System.Drawing.Point(186, 62);
             this.pointsSpecArmsNumeric.Name = "pointsSpecArmsNumeric";
             this.pointsSpecArmsNumeric.Size = new System.Drawing.Size(65, 20);
             this.pointsSpecArmsNumeric.TabIndex = 28;
@@ -1395,7 +1414,7 @@
             // 
             // pointsSpecHeadNumeric
             // 
-            this.pointsSpecHeadNumeric.Location = new System.Drawing.Point(154, 37);
+            this.pointsSpecHeadNumeric.Location = new System.Drawing.Point(186, 36);
             this.pointsSpecHeadNumeric.Name = "pointsSpecHeadNumeric";
             this.pointsSpecHeadNumeric.Size = new System.Drawing.Size(65, 20);
             this.pointsSpecHeadNumeric.TabIndex = 27;
@@ -1902,6 +1921,7 @@
             // 
             // mainSummaryTabPage
             // 
+            this.mainSummaryTabPage.Controls.Add(this.loadButton2);
             this.mainSummaryTabPage.Controls.Add(this.saveButton);
             this.mainSummaryTabPage.Controls.Add(this.defence);
             this.mainSummaryTabPage.Controls.Add(this.defenceTotal);
@@ -1916,6 +1936,16 @@
             this.mainSummaryTabPage.TabIndex = 0;
             this.mainSummaryTabPage.Text = "Summary";
             this.mainSummaryTabPage.UseVisualStyleBackColor = true;
+            // 
+            // loadButton2
+            // 
+            this.loadButton2.Location = new System.Drawing.Point(97, 593);
+            this.loadButton2.Name = "loadButton2";
+            this.loadButton2.Size = new System.Drawing.Size(75, 23);
+            this.loadButton2.TabIndex = 7;
+            this.loadButton2.Text = "Load As";
+            this.loadButton2.UseVisualStyleBackColor = true;
+            this.loadButton2.Click += new System.EventHandler(this.loadButton2_Click);
             // 
             // saveButton
             // 
@@ -1977,6 +2007,10 @@
             this.summaryLabel.Size = new System.Drawing.Size(37, 13);
             this.summaryLabel.TabIndex = 0;
             this.summaryLabel.Text = "Total: ";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "";
             // 
             // MainForm
             // 
@@ -2179,7 +2213,7 @@
         private System.Windows.Forms.Label armourDivisorLabel;
         private System.Windows.Forms.CheckBox vampiricCheckBox;
         private System.Windows.Forms.CheckBox explosiveCheckbox;
-        private System.Windows.Forms.CheckBox requiredFPCheckbox;
+        private System.Windows.Forms.CheckBox attackCostsFP;
         private System.Windows.Forms.Label damageTotal;
         private System.Windows.Forms.Label damageTotalLabel;
         private System.Windows.Forms.Label fatiguePointsLabel;
@@ -2224,5 +2258,8 @@
         private System.Windows.Forms.Label offenceTotal;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolTip mainFormTooltip;
+        private System.Windows.Forms.Button loadButton2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

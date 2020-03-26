@@ -40,7 +40,7 @@
             this.loadFileButton.Name = "loadFileButton";
             this.loadFileButton.Size = new System.Drawing.Size(75, 23);
             this.loadFileButton.TabIndex = 0;
-            this.loadFileButton.Text = "Load";
+            this.loadFileButton.Text = "Load As";
             this.loadFileButton.UseVisualStyleBackColor = true;
             this.loadFileButton.Click += new System.EventHandler(this.loadFileButton_Click);
             // 
@@ -65,6 +65,7 @@
             this.selectLoadFile.Name = "selectLoadFile";
             this.selectLoadFile.Size = new System.Drawing.Size(240, 355);
             this.selectLoadFile.TabIndex = 2;
+            this.selectLoadFile.SelectedIndexChanged += new System.EventHandler(this.selectLoadFile_SelectedIndexChanged);
             // 
             // LoadForm
             // 

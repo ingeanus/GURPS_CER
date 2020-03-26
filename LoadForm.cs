@@ -52,7 +52,6 @@ namespace GURPS_CER
             }
             else
             {
-                int size = -1;
                 openFileDialog1.InitialDirectory = @".\Characters";
                 DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
                 if (result == DialogResult.OK) // Test result.
@@ -72,8 +71,6 @@ namespace GURPS_CER
                     {
                     }
                 }
-                Console.WriteLine(size); // <-- Shows file size in debugging mode.
-                Console.WriteLine(result);
             }
         }
 
@@ -87,8 +84,14 @@ namespace GURPS_CER
         {
             this.Hide();
             MainForm form1 = new MainForm();
+            form1.FormClosing += new FormClosingEventHandler(this.MainForm_Closing);
 
             form1.Show();
+        }
+
+        private void selectLoadFile_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.loadFileButton.Text = "Load";
         }
     }
 }

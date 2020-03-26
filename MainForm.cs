@@ -27,6 +27,23 @@ namespace GURPS_CER
             Calculate_HitPoints();
             Calculate_Move();
             Calculate_Will();
+            Populate_Tooltips();
+        }
+
+        private void Populate_Tooltips()
+        {
+            this.mainFormTooltip.SetToolTip(this.drLabel2, "This is the amount of points spent on DR that only applies to special attacks, such as Fire Resistance.");
+            this.mainFormTooltip.SetToolTip(this.multiAttackCheckbox, "This is only if you are capable of MULTIPLE Rapid Strike attacks that have a skill above 11.");
+            this.mainFormTooltip.SetToolTip(this.rapidFireLabel, "This is the bonus for firing a large amount of attacks at once (B373), not the amount of shots you can fire.");
+            this.mainFormTooltip.SetToolTip(this.conditionLabel, "This is the % that the condition would be worth as an enhancement to an Affliction, e.g. 300% for Heart Attack, so input 300.");
+            this.mainFormTooltip.SetToolTip(this.afflictionAttackLabel, "This is the GURPS CER value for the damage of the attack tied to this Affliction. It's calculated the same as in the Damage tab, but they can be different attacks.");
+            this.mainFormTooltip.SetToolTip(this.cyclesLabel, "This is the amount of cycles that take place within 15 seconds. For normal attacks that are not cyclic, this is 1.");
+            this.mainFormTooltip.SetToolTip(this.parryMultipleCheckBox, "e.g. dual wielding or fighting unarmed where you can parry with both hands.");
+            this.mainFormTooltip.SetToolTip(this.defenseAdvantagesLabel, "Injury Tolerance, Resistant, Supernatural Durability, Unkillable, and so on.");
+            this.mainFormTooltip.SetToolTip(this.defenseDisadvantagesLabel, "Dependency, Fragile, Vulnerability, Weakness, etc.");
+            this.mainFormTooltip.SetToolTip(this.hpAdvantagesLabel, "Rapid Healing, Recovery, Regeneration, etc.");
+            this.mainFormTooltip.SetToolTip(this.curePointsLabel, "The % that the condition you can cure would be worth as an enhancement to an Affliction (e.g. 300% is a heart attack, so put 300 for an ability to rescuscitate from that).");
+            this.mainFormTooltip.SetToolTip(this.saveButton, "Click to Save this character as a .gcer file.");
         }
         
         private void RangedCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -339,7 +356,7 @@ namespace GURPS_CER
 
             damage *= cyclesNumeric.Value;
 
-            if (requiredFPCheckbox.Checked)
+            if (attackCostsFP.Checked)
             {
                 damage /= 2;
             }
@@ -775,6 +792,7 @@ namespace GURPS_CER
         {
             saveFileDialog1.Filter = "GURPS CER|*.gcer";
             saveFileDialog1.Title = "Save a GCER File";
+            saveFileDialog1.FileName = "";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -876,6 +894,26 @@ namespace GURPS_CER
                         line = f_in.ReadLine();
                         item.GetType().GetProperty("Text").SetValue(item, line);
                     }
+                }
+            }
+            f_in.Close();
+        }
+
+        private void loadButton2_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.InitialDirectory = @".\Characters";
+            openFileDialog1.FileName = "";
+
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = openFileDialog1.FileName;
+                try
+                {
+                    this.Load_File(file);
+                }
+                catch (IOException)
+                {
                 }
             }
         }
