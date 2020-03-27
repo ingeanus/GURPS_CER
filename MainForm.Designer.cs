@@ -2041,7 +2041,17 @@ namespace GURPS_CER
                 "\nand is released for free distribution, and not for resale, " +
                 "\nunder the permissions granted in the\n " +
                 "http://www.sjgames.com/general/online_policy.html " +
-                "\nSteve Jackson Games Online Policy";
+                "\nSteve Jackson Games Online Policy\n\n" +
+                "http://www.sjgames.com/gurps/ GURPS is a registered trademark of " +
+                "\nSteve Jackson Games, and the art here is copyrighted by " +
+                "\nSteve Jackson Games. All rights are reserved by " +
+                "\nSJ Games.This material is used here in accordance with the " +
+                "\nSJ Games http://www.sjgames.com/general/online_policy.html online policy\n\n" +
+                "The material presented here is my original creation, intended for use with " +
+                "\nthe http://www.sjgames.com/gurps/ GURPS system from \n" +
+                "http://www.sjgames.com/ Steve Jackson Game. " +
+                "\nThis material is not official and is not endorsed by " +
+                "\nSteve Jackson Games.";
             // 
             // MainForm
             // 
