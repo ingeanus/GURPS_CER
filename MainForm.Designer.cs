@@ -2051,7 +2051,10 @@ namespace GURPS_CER
                 "\nthe http://www.sjgames.com/gurps/ GURPS system from \n" +
                 "http://www.sjgames.com/ Steve Jackson Game. " +
                 "\nThis material is not official and is not endorsed by " +
-                "\nSteve Jackson Games.";
+                "\nSteve Jackson Games.\n" +
+                "It's A Threat from Pyramid #77\n" +
+                "Written by Christopher R. Rice\n" +
+                "Check it out for the best experience using this!";
             // 
             // MainForm
             // 
