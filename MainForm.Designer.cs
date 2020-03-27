@@ -194,9 +194,11 @@ namespace GURPS_CER
             this.offenceTotal = new System.Windows.Forms.Label();
             this.summary = new System.Windows.Forms.Label();
             this.summaryLabel = new System.Windows.Forms.Label();
+            this.aboutGCER = new System.Windows.Forms.TabPage();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.mainFormTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.aboutLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.attackSkilluNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accuracyNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rapidStrikesNumeric)).BeginInit();
@@ -254,6 +256,7 @@ namespace GURPS_CER
             ((System.ComponentModel.ISupportInitialize)(this.willNumeric)).BeginInit();
             this.summaryTabControl.SuspendLayout();
             this.mainSummaryTabPage.SuspendLayout();
+            this.aboutGCER.SuspendLayout();
             this.SuspendLayout();
             // 
             // attackSkillLabel
@@ -1916,6 +1919,7 @@ namespace GURPS_CER
             // summaryTabControl
             // 
             this.summaryTabControl.Controls.Add(this.mainSummaryTabPage);
+            this.summaryTabControl.Controls.Add(this.aboutGCER);
             this.summaryTabControl.Location = new System.Drawing.Point(800, 0);
             this.summaryTabControl.Name = "summaryTabControl";
             this.summaryTabControl.SelectedIndex = 0;
@@ -2011,9 +2015,33 @@ namespace GURPS_CER
             this.summaryLabel.TabIndex = 0;
             this.summaryLabel.Text = "Total: ";
             // 
-            // openFileDialog1
+            // aboutGCER
             // 
-            this.openFileDialog1.FileName = "";
+            this.aboutGCER.Controls.Add(this.aboutLabel);
+            this.aboutGCER.Location = new System.Drawing.Point(4, 22);
+            this.aboutGCER.Name = "aboutGCER";
+            this.aboutGCER.Padding = new System.Windows.Forms.Padding(3);
+            this.aboutGCER.Size = new System.Drawing.Size(392, 624);
+            this.aboutGCER.TabIndex = 1;
+            this.aboutGCER.Text = "About GCER";
+            this.aboutGCER.UseVisualStyleBackColor = true;
+            // 
+            // aboutLabel
+            // 
+            this.aboutLabel.AutoSize = true;
+            this.aboutLabel.Location = new System.Drawing.Point(6, 3);
+            this.aboutLabel.Name = "aboutLabel";
+            this.aboutLabel.Size = new System.Drawing.Size(35, 13);
+            this.aboutLabel.TabIndex = 0;
+            this.aboutLabel.Text = "Version 1.20\nMade on March 25, 2020\n\n" +
+                "GURPS is a trademark of Steve Jackson Games, and its rules " +
+                "\nand art are copyrighted by Steve Jackson Games. " +
+                "\nAll rights are reserved by Steve Jackson Games. " +
+                "\nThis game aid is the original creation of Josh Adkins " +
+                "\nand is released for free distribution, and not for resale, " +
+                "\nunder the permissions granted in the\n " +
+                "http://www.sjgames.com/general/online_policy.html " +
+                "\nSteve Jackson Games Online Policy";
             // 
             // MainForm
             // 
@@ -2093,6 +2121,8 @@ namespace GURPS_CER
             this.summaryTabControl.ResumeLayout(false);
             this.mainSummaryTabPage.ResumeLayout(false);
             this.mainSummaryTabPage.PerformLayout();
+            this.aboutGCER.ResumeLayout(false);
+            this.aboutGCER.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2264,5 +2294,7 @@ namespace GURPS_CER
         private System.Windows.Forms.ToolTip mainFormTooltip;
         private System.Windows.Forms.Button loadButton2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TabPage aboutGCER;
+        private System.Windows.Forms.Label aboutLabel;
     }
 }

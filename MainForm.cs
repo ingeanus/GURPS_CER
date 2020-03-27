@@ -45,8 +45,8 @@ namespace GURPS_CER
             this.mainFormTooltip.SetToolTip(this.afflictionAttackLabel, "This is the GURPS CER value for the damage of the attack tied to this Affliction. It's calculated the same as in the Damage tab, but they can be different attacks.");
             this.mainFormTooltip.SetToolTip(this.cyclesLabel, "This is the amount of cycles that take place within 15 seconds. For normal attacks that are not cyclic, this is 1.");
             this.mainFormTooltip.SetToolTip(this.parryMultipleCheckBox, "e.g. dual wielding or fighting unarmed where you can parry with both hands.");
-            this.mainFormTooltip.SetToolTip(this.defenseAdvantagesLabel, "Injury Tolerance, Resistant, Supernatural Durability, Unkillable, and so on.");
-            this.mainFormTooltip.SetToolTip(this.defenseDisadvantagesLabel, "Dependency, Fragile, Vulnerability, Weakness, etc.");
+            this.mainFormTooltip.SetToolTip(this.defenseAdvantagesLabel, "Advantages like Supernatural Durability, Resistant, Injury Tolerance, and Unkillable.");
+            this.mainFormTooltip.SetToolTip(this.defenseDisadvantagesLabel, "Disadvantages like Fragile, Weakness, Vulnerability, and Dependency");
             this.mainFormTooltip.SetToolTip(this.hpAdvantagesLabel, "Rapid Healing, Recovery, Regeneration, etc.");
             this.mainFormTooltip.SetToolTip(this.curePointsLabel, "The % that the condition you can cure would be worth as an enhancement to an Affliction (e.g. 300% is a heart attack, so put 300 for an ability to rescuscitate from that).");
             this.mainFormTooltip.SetToolTip(this.saveButton, "Click to Save this character as a .gcer file.");
