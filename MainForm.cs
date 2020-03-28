@@ -246,8 +246,8 @@ namespace GURPS_CER
             decimal magicResistance;
 
             dr = (drhHeadNumeric.Value + drTorsoNumeric.Value + drArmsNumeric.Value + drLegsNumeric.Value) / 4;
-            specDR = (pointsSpecHeadNumeric.Value + pointsSpecTorsoNumeric.Value + pointsSpecArmsNumeric.Value + pointsSpecLegsNumeric.Value) / 5;
-            hardenedLevels = (hardenedHeadNumeric.Value + hardenedTorsoNumeric.Value + hardenedArmsNumeric.Value + hardenedLegsNumeric.Value) * 5;
+            specDR = (pointsSpecHeadNumeric.Value + pointsSpecTorsoNumeric.Value + pointsSpecArmsNumeric.Value + pointsSpecLegsNumeric.Value) / 5 / 4;
+            hardenedLevels = (hardenedHeadNumeric.Value + hardenedTorsoNumeric.Value + hardenedArmsNumeric.Value + hardenedLegsNumeric.Value) * 5 / 4;
             advantagePoints = defenseAdvantagesNumeric.Value / 5;
             disadvantagePoints = -(defenseDisadvantagesNumeric.Value) / 5;
             magicResistance = magicResistanceNumeric.Value;
@@ -494,6 +494,45 @@ namespace GURPS_CER
             summary.Text = total.ToString();
             offence.Text = offense.ToString();
             defence.Text = defense.ToString();
+        }
+
+        private void Calculate_ThreatClass()
+        {
+            decimal partyCER;
+            decimal enemyCER;
+            decimal NValue;
+
+            partyCER = partyCERNumeric.Value;
+            enemyCER = enemyCERNumeric.Value * (1 + situationalAdvantageNumeric.Value / 100);
+            NValue = partyCER / enemyCER;
+
+
+            NRating.Text = String.Format("{0:0.00}", NValue).ToString();
+            if (NValue >= 11)
+            {
+                threatClass.Text = "Nuisance";
+                threatClassDesc.Text = "The monsters are pests or a diversion of some kind.";
+            }
+            else if (NValue >= 3)
+            {
+                threatClass.Text = "Fodder";
+                threatClassDesc.Text = "The enemy may wear down the PCs, but will rarely beat them.";
+            }
+            else if (NValue >= 0.49m)
+            {
+                threatClass.Text = "Worthy";
+                threatClassDesc.Text = "This fight is roughly even.";
+            }
+            else if (NValue >= 0.10m)
+            {
+                threatClass.Text = "Boss";
+                threatClassDesc.Text = "The enemy outmatches the party, who will need luck and quick wits to win.";
+            }   
+            else if (NValue < 0.10m)
+            {
+                threatClass.Text = "Epic";
+                threatClassDesc.Text = "Only luck, emergency one-use magic, or unexpected \nreinforcements will save the heroes!";
+            }
         }
 
         private void DodgeNumeric_ValueChanged(object sender, EventArgs e)
@@ -795,6 +834,21 @@ namespace GURPS_CER
         private void fatiguePointsBonusNumeric_ValueChanged(object sender, EventArgs e)
         {
             Calculate_FatiguePoints();
+        }
+
+        private void partyCERNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Calculate_ThreatClass();
+        }
+
+        private void enemyCERNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Calculate_ThreatClass();
+        }
+
+        private void situationalAdvantageNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            Calculate_ThreatClass();
         }
 
         // This functions saves the files as a .gcer (One of my own types)

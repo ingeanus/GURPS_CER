@@ -32,6 +32,7 @@ namespace GURPS_CER
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.attackSkillLabel = new System.Windows.Forms.Label();
             this.attackSkilluNumeric = new System.Windows.Forms.NumericUpDown();
             this.rangedCheckbox = new System.Windows.Forms.CheckBox();
@@ -194,11 +195,24 @@ namespace GURPS_CER
             this.offenceTotal = new System.Windows.Forms.Label();
             this.summary = new System.Windows.Forms.Label();
             this.summaryLabel = new System.Windows.Forms.Label();
+            this.threatClassTab = new System.Windows.Forms.TabPage();
+            this.threatClassDesc = new System.Windows.Forms.Label();
+            this.threatClass = new System.Windows.Forms.Label();
+            this.threatClassLabel = new System.Windows.Forms.Label();
+            this.NRating = new System.Windows.Forms.Label();
+            this.NRatingLabel = new System.Windows.Forms.Label();
+            this.situationalAdvantageLabel = new System.Windows.Forms.Label();
+            this.situationalAdvantageNumeric = new System.Windows.Forms.NumericUpDown();
+            this.enemyCERLabel = new System.Windows.Forms.Label();
+            this.enemyCERNumeric = new System.Windows.Forms.NumericUpDown();
+            this.threatClassInstructionsLabel = new System.Windows.Forms.Label();
+            this.partyCERLabel = new System.Windows.Forms.Label();
+            this.partyCERNumeric = new System.Windows.Forms.NumericUpDown();
             this.aboutGCER = new System.Windows.Forms.TabPage();
+            this.aboutLabel = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.mainFormTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.aboutLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.attackSkilluNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accuracyNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rapidStrikesNumeric)).BeginInit();
@@ -256,6 +270,10 @@ namespace GURPS_CER
             ((System.ComponentModel.ISupportInitialize)(this.willNumeric)).BeginInit();
             this.summaryTabControl.SuspendLayout();
             this.mainSummaryTabPage.SuspendLayout();
+            this.threatClassTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.situationalAdvantageNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyCERNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partyCERNumeric)).BeginInit();
             this.aboutGCER.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1919,6 +1937,7 @@ namespace GURPS_CER
             // summaryTabControl
             // 
             this.summaryTabControl.Controls.Add(this.mainSummaryTabPage);
+            this.summaryTabControl.Controls.Add(this.threatClassTab);
             this.summaryTabControl.Controls.Add(this.aboutGCER);
             this.summaryTabControl.Location = new System.Drawing.Point(800, 0);
             this.summaryTabControl.Name = "summaryTabControl";
@@ -2015,6 +2034,177 @@ namespace GURPS_CER
             this.summaryLabel.TabIndex = 0;
             this.summaryLabel.Text = "Total: ";
             // 
+            // threatClassTab
+            // 
+            this.threatClassTab.Controls.Add(this.threatClassDesc);
+            this.threatClassTab.Controls.Add(this.threatClass);
+            this.threatClassTab.Controls.Add(this.threatClassLabel);
+            this.threatClassTab.Controls.Add(this.NRating);
+            this.threatClassTab.Controls.Add(this.NRatingLabel);
+            this.threatClassTab.Controls.Add(this.situationalAdvantageLabel);
+            this.threatClassTab.Controls.Add(this.situationalAdvantageNumeric);
+            this.threatClassTab.Controls.Add(this.enemyCERLabel);
+            this.threatClassTab.Controls.Add(this.enemyCERNumeric);
+            this.threatClassTab.Controls.Add(this.threatClassInstructionsLabel);
+            this.threatClassTab.Controls.Add(this.partyCERLabel);
+            this.threatClassTab.Controls.Add(this.partyCERNumeric);
+            this.threatClassTab.Location = new System.Drawing.Point(4, 22);
+            this.threatClassTab.Name = "threatClassTab";
+            this.threatClassTab.Padding = new System.Windows.Forms.Padding(3);
+            this.threatClassTab.Size = new System.Drawing.Size(392, 624);
+            this.threatClassTab.TabIndex = 1;
+            this.threatClassTab.Text = "Threat Class";
+            this.threatClassTab.UseVisualStyleBackColor = true;
+            // 
+            // threatClassDesc
+            // 
+            this.threatClassDesc.AutoSize = true;
+            this.threatClassDesc.Location = new System.Drawing.Point(10, 173);
+            this.threatClassDesc.Name = "threatClassDesc";
+            this.threatClassDesc.Size = new System.Drawing.Size(0, 13);
+            this.threatClassDesc.TabIndex = 33;
+            // 
+            // threatClass
+            // 
+            this.threatClass.AutoSize = true;
+            this.threatClass.Location = new System.Drawing.Point(76, 153);
+            this.threatClass.Name = "threatClass";
+            this.threatClass.Size = new System.Drawing.Size(0, 13);
+            this.threatClass.TabIndex = 32;
+            // 
+            // threatClassLabel
+            // 
+            this.threatClassLabel.AutoSize = true;
+            this.threatClassLabel.Location = new System.Drawing.Point(7, 153);
+            this.threatClassLabel.Name = "threatClassLabel";
+            this.threatClassLabel.Size = new System.Drawing.Size(72, 13);
+            this.threatClassLabel.TabIndex = 31;
+            this.threatClassLabel.Text = "Threat Class: ";
+            // 
+            // NRating
+            // 
+            this.NRating.AutoSize = true;
+            this.NRating.Location = new System.Drawing.Point(68, 130);
+            this.NRating.Name = "NRating";
+            this.NRating.Size = new System.Drawing.Size(0, 13);
+            this.NRating.TabIndex = 30;
+            // 
+            // NRatingLabel
+            // 
+            this.NRatingLabel.AutoSize = true;
+            this.NRatingLabel.Location = new System.Drawing.Point(7, 130);
+            this.NRatingLabel.Name = "NRatingLabel";
+            this.NRatingLabel.Size = new System.Drawing.Size(55, 13);
+            this.NRatingLabel.TabIndex = 29;
+            this.NRatingLabel.Text = "N Rating: ";
+            // 
+            // situationalAdvantageLabel
+            // 
+            this.situationalAdvantageLabel.AutoSize = true;
+            this.situationalAdvantageLabel.Location = new System.Drawing.Point(7, 91);
+            this.situationalAdvantageLabel.Name = "situationalAdvantageLabel";
+            this.situationalAdvantageLabel.Size = new System.Drawing.Size(128, 13);
+            this.situationalAdvantageLabel.TabIndex = 28;
+            this.situationalAdvantageLabel.Text = "Situational Advantage %: ";
+            // 
+            // situationalAdvantageNumeric
+            // 
+            this.situationalAdvantageNumeric.Location = new System.Drawing.Point(141, 89);
+            this.situationalAdvantageNumeric.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.situationalAdvantageNumeric.Name = "situationalAdvantageNumeric";
+            this.situationalAdvantageNumeric.Size = new System.Drawing.Size(61, 20);
+            this.situationalAdvantageNumeric.TabIndex = 27;
+            this.situationalAdvantageNumeric.ValueChanged += new System.EventHandler(this.situationalAdvantageNumeric_ValueChanged);
+            // 
+            // enemyCERLabel
+            // 
+            this.enemyCERLabel.AutoSize = true;
+            this.enemyCERLabel.Location = new System.Drawing.Point(6, 52);
+            this.enemyCERLabel.Name = "enemyCERLabel";
+            this.enemyCERLabel.Size = new System.Drawing.Size(70, 13);
+            this.enemyCERLabel.TabIndex = 26;
+            this.enemyCERLabel.Text = "Enemy CER: ";
+            // 
+            // enemyCERNumeric
+            // 
+            this.enemyCERNumeric.DecimalPlaces = 2;
+            this.enemyCERNumeric.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.enemyCERNumeric.Location = new System.Drawing.Point(82, 50);
+            this.enemyCERNumeric.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.enemyCERNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.enemyCERNumeric.Name = "enemyCERNumeric";
+            this.enemyCERNumeric.Size = new System.Drawing.Size(120, 20);
+            this.enemyCERNumeric.TabIndex = 25;
+            this.enemyCERNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.enemyCERNumeric.ValueChanged += new System.EventHandler(this.enemyCERNumeric_ValueChanged);
+            // 
+            // threatClassInstructionsLabel
+            // 
+            this.threatClassInstructionsLabel.AutoSize = true;
+            this.threatClassInstructionsLabel.Location = new System.Drawing.Point(6, 3);
+            this.threatClassInstructionsLabel.Name = "threatClassInstructionsLabel";
+            this.threatClassInstructionsLabel.Size = new System.Drawing.Size(228, 13);
+            this.threatClassInstructionsLabel.TabIndex = 24;
+            this.threatClassInstructionsLabel.Text = "Enter all defenses for the creature. Include DB.";
+            // 
+            // partyCERLabel
+            // 
+            this.partyCERLabel.AutoSize = true;
+            this.partyCERLabel.Location = new System.Drawing.Point(7, 24);
+            this.partyCERLabel.Name = "partyCERLabel";
+            this.partyCERLabel.Size = new System.Drawing.Size(62, 13);
+            this.partyCERLabel.TabIndex = 20;
+            this.partyCERLabel.Text = "Party CER: ";
+            // 
+            // partyCERNumeric
+            // 
+            this.partyCERNumeric.DecimalPlaces = 2;
+            this.partyCERNumeric.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.partyCERNumeric.Location = new System.Drawing.Point(82, 22);
+            this.partyCERNumeric.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.partyCERNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.partyCERNumeric.Name = "partyCERNumeric";
+            this.partyCERNumeric.Size = new System.Drawing.Size(120, 20);
+            this.partyCERNumeric.TabIndex = 0;
+            this.partyCERNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.partyCERNumeric.ValueChanged += new System.EventHandler(this.partyCERNumeric_ValueChanged);
+            // 
             // aboutGCER
             // 
             this.aboutGCER.Controls.Add(this.aboutLabel);
@@ -2022,7 +2212,7 @@ namespace GURPS_CER
             this.aboutGCER.Name = "aboutGCER";
             this.aboutGCER.Padding = new System.Windows.Forms.Padding(3);
             this.aboutGCER.Size = new System.Drawing.Size(392, 624);
-            this.aboutGCER.TabIndex = 1;
+            this.aboutGCER.TabIndex = 2;
             this.aboutGCER.Text = "About GCER";
             this.aboutGCER.UseVisualStyleBackColor = true;
             // 
@@ -2031,30 +2221,9 @@ namespace GURPS_CER
             this.aboutLabel.AutoSize = true;
             this.aboutLabel.Location = new System.Drawing.Point(6, 3);
             this.aboutLabel.Name = "aboutLabel";
-            this.aboutLabel.Size = new System.Drawing.Size(35, 13);
+            this.aboutLabel.Size = new System.Drawing.Size(366, 338);
             this.aboutLabel.TabIndex = 0;
-            this.aboutLabel.Text = "Version 1.20\nMade on March 25, 2020\n\n" +
-                "GURPS is a trademark of Steve Jackson Games, and its rules " +
-                "\nand art are copyrighted by Steve Jackson Games. " +
-                "\nAll rights are reserved by Steve Jackson Games. " +
-                "\nThis game aid is the original creation of Josh Adkins " +
-                "\nand is released for free distribution, and not for resale, " +
-                "\nunder the permissions granted in the\n " +
-                "http://www.sjgames.com/general/online_policy.html " +
-                "\nSteve Jackson Games Online Policy\n\n" +
-                "http://www.sjgames.com/gurps/ GURPS is a registered trademark of " +
-                "\nSteve Jackson Games, and the art here is copyrighted by " +
-                "\nSteve Jackson Games. All rights are reserved by " +
-                "\nSJ Games.This material is used here in accordance with the " +
-                "\nSJ Games http://www.sjgames.com/general/online_policy.html online policy\n\n" +
-                "The material presented here is my original creation, intended for use with " +
-                "\nthe http://www.sjgames.com/gurps/ GURPS system from \n" +
-                "http://www.sjgames.com/ Steve Jackson Game. " +
-                "\nThis material is not official and is not endorsed by " +
-                "\nSteve Jackson Games.\n" +
-                "It's A Threat from Pyramid #77\n" +
-                "Written by Christopher R. Rice\n" +
-                "Check it out for the best experience using this!";
+            this.aboutLabel.Text = resources.GetString("aboutLabel.Text");
             // 
             // MainForm
             // 
@@ -2134,6 +2303,11 @@ namespace GURPS_CER
             this.summaryTabControl.ResumeLayout(false);
             this.mainSummaryTabPage.ResumeLayout(false);
             this.mainSummaryTabPage.PerformLayout();
+            this.threatClassTab.ResumeLayout(false);
+            this.threatClassTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.situationalAdvantageNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enemyCERNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partyCERNumeric)).EndInit();
             this.aboutGCER.ResumeLayout(false);
             this.aboutGCER.PerformLayout();
             this.ResumeLayout(false);
@@ -2309,5 +2483,18 @@ namespace GURPS_CER
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TabPage aboutGCER;
         private System.Windows.Forms.Label aboutLabel;
+        private System.Windows.Forms.TabPage threatClassTab;
+        private System.Windows.Forms.Label threatClassInstructionsLabel;
+        private System.Windows.Forms.Label partyCERLabel;
+        private System.Windows.Forms.NumericUpDown partyCERNumeric;
+        private System.Windows.Forms.Label enemyCERLabel;
+        private System.Windows.Forms.NumericUpDown enemyCERNumeric;
+        private System.Windows.Forms.Label situationalAdvantageLabel;
+        private System.Windows.Forms.NumericUpDown situationalAdvantageNumeric;
+        private System.Windows.Forms.Label NRatingLabel;
+        private System.Windows.Forms.Label NRating;
+        private System.Windows.Forms.Label threatClass;
+        private System.Windows.Forms.Label threatClassLabel;
+        private System.Windows.Forms.Label threatClassDesc;
     }
 }

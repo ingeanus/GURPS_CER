@@ -117,6 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aboutLabel.Text" xml:space="preserve">
+    <value>Version 1.20
+Made on March 25, 2020
+
+GURPS is a trademark of Steve Jackson Games, and its rules 
+and art are copyrighted by Steve Jackson Games. 
+All rights are reserved by Steve Jackson Games. 
+This game aid is the original creation of Josh Adkins 
+and is released for free distribution, and not for resale, 
+under the permissions granted in the
+ http://www.sjgames.com/general/online_policy.html 
+Steve Jackson Games Online Policy
+
+http://www.sjgames.com/gurps/ GURPS is a registered trademark of 
+Steve Jackson Games, and the art here is copyrighted by 
+Steve Jackson Games. All rights are reserved by 
+SJ Games.This material is used here in accordance with the 
+SJ Games http://www.sjgames.com/general/online_policy.html online policy
+
+The material presented here is my original creation, intended for use with 
+the http://www.sjgames.com/gurps/ GURPS system from 
+http://www.sjgames.com/ Steve Jackson Game. 
+This material is not official and is not endorsed by 
+Steve Jackson Games.
+It's A Threat from Pyramid #77
+Written by Christopher R. Rice
+Check it out for the best experience using this!</value>
+  </data>
   <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>162, 17</value>
   </metadata>
